@@ -4,7 +4,7 @@
 # Alexander Ivashkin, August 2018
 #
 
-ScriptVersion='v. 1.8.1'
+ScriptVersion='v. 1.8.2'
 
 # Those constants are called "sensitive_" because they could contain sensitive data that should be removed by the anonymisation process.
 #
@@ -146,7 +146,7 @@ echo "Available regexps engines: $regexp_engines" | tee -a $file_log
 echo ====================================================================== 
 
 
-cd $sensitive_DirectoryWithLogs 2>/dev/null || summarize_and_cleanup 'FATAL ERROR: could not cd to $sensitive_DirectoryWithLogs. ABORTING.'
+cd $sensitive_DirectoryWithLogs 2>/dev/null || summarize_and_cleanup "FATAL ERROR: could not cd to $sensitive_DirectoryWithLogs. ABORTING."
 
 set -o pipefail
 oldest_CiscoInfo=$(ls -tg --time-style=long-iso cisco_info* | tail -1 | sed -E 's/^.* [0-9]+ (2[0-9]{3}-[0-9]{2}-[0-9]{2}) .*$/\1/g' || echo NO LOGS)
